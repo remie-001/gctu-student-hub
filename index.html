@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- data-theme tells the CSS which colours to use. js/theme.js changes it. -->
+<html lang="en" data-theme="light">
 <head>
   <!-- Tells the browser how to read the text (supports all characters) -->
   <meta charset="UTF-8">
@@ -24,6 +25,13 @@
         <a href="#exams">Exams</a>
         <a href="#notes">Notes</a>
       </nav>
+
+      <!-- Theme switch. aria-pressed="true" means dark mode is ON.
+           Screen readers announce it as "Dark mode, toggle button, not pressed". -->
+      <button type="button" id="theme-toggle" class="theme-toggle" aria-pressed="false">
+        <span class="theme-toggle-icon" aria-hidden="true"></span>
+        Dark mode
+      </button>
     </div>
   </header>
 
@@ -89,6 +97,7 @@
   </footer>
 
   <!-- JavaScript is loaded last so the HTML above already exists when it runs -->
+  <script src="js/theme.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

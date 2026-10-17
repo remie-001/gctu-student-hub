@@ -13,8 +13,39 @@
   --color-border: #dddddd;    /* thin lines around cards */
   --color-accent: #000000;    /* strong highlights (black) */
 
+  /* Welcome banner: black with light text in light mode */
+  --welcome-bg: #000000;
+  --welcome-text: #ffffff;
+  --welcome-muted: #cccccc;
+  --welcome-border: #444444;
+
   --radius: 10px;             /* how rounded the corners are */
   --shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+
+  color-scheme: light;        /* tells the browser to draw scrollbars etc. in light style */
+}
+
+/* ---------- 1b. Dark theme ----------
+   When js/theme.js sets <html data-theme="dark">, this rule
+   replaces the colour values above. Everything that uses
+   var(--color-...) updates automatically. */
+[data-theme="dark"] {
+  --color-bg: #121212;        /* page background (very dark grey) */
+  --color-surface: #1e1e1e;   /* cards and header (dark grey) */
+  --color-text: #f2f2f2;      /* main text (off white) */
+  --color-text-muted: #b3b3b3;/* secondary text (light grey) */
+  --color-border: #333333;
+  --color-accent: #ffffff;
+
+  /* Welcome banner flips to white with dark text */
+  --welcome-bg: #f2f2f2;
+  --welcome-text: #111111;
+  --welcome-muted: #444444;
+  --welcome-border: #bbbbbb;
+
+  --shadow: none;
+
+  color-scheme: dark;
 }
 
 /* ---------- 2. Basic reset ----------
@@ -92,6 +123,49 @@ p {
   color: var(--color-text);
 }
 
+/* ---------- 3b. Theme toggle button ---------- */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  font: inherit;               /* buttons don't copy the page font by default */
+  font-size: 0.9rem;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;        /* pill shape */
+  cursor: pointer;
+}
+
+/* A half-filled circle drawn with CSS (looks the same on every computer).
+   currentColor means "use the button's text colour". */
+.theme-toggle-icon {
+  width: 14px;
+  height: 14px;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  background: linear-gradient(90deg, currentColor 50%, transparent 50%);
+}
+
+.theme-toggle:hover {
+  background-color: var(--color-bg);
+}
+
+/* When dark mode is ON, the button looks "pressed in" (filled). */
+.theme-toggle[aria-pressed="true"] {
+  background-color: var(--color-text);
+  color: var(--color-surface);
+  border-color: var(--color-text);
+}
+
+/* A clear outline when you reach a link or button with the Tab key */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 2px;
+}
+
 /* ---------- 4. Page layout ---------- */
 .container {
   max-width: 1100px;  /* stops lines getting too long on big screens */
@@ -107,15 +181,15 @@ section {
 
 /* ---------- 5. Welcome / dashboard ---------- */
 .welcome {
-  background-color: var(--color-accent);
-  color: #ffffff;
+  background-color: var(--welcome-bg);
+  color: var(--welcome-text);
   border-radius: var(--radius);
   padding: 32px 24px;
   margin-bottom: 24px;
 }
 
 .welcome-date {
-  color: #bbbbbb;
+  color: var(--welcome-muted);
   font-size: 0.9rem;
   margin-bottom: 4px;
 }
@@ -126,7 +200,7 @@ section {
 }
 
 .welcome-text {
-  color: #dddddd;
+  color: var(--welcome-muted);
   max-width: 60ch;
 }
 
@@ -135,8 +209,8 @@ section {
   margin: 8px 0 0;
   padding: 8px 12px;
   font-size: 0.85rem;
-  color: #dddddd;
-  border: 1px solid #444444;
+  color: var(--welcome-muted);
+  border: 1px solid var(--welcome-border);
   border-radius: 6px;
 }
 
