@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Tells the browser how to read the text (supports all characters) -->
+  <meta charset="UTF-8">
+  <!-- Makes the page fit phone screens instead of showing a tiny desktop page -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="GCTU Student Hub - a personal productivity dashboard for students.">
+  <title>GCTU Student Hub</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ===== HEADER: app name and navigation links ===== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#dashboard" class="logo">GCTU <span>Student Hub</span></a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#timetable">Timetable</a>
+        <a href="#assignments">Assignments</a>
+        <a href="#tasks">Tasks</a>
+        <a href="#gpa">GPA</a>
+        <a href="#exams">Exams</a>
+        <a href="#notes">Notes</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- ===== DASHBOARD: welcome message (filled in by js/app.js) ===== -->
+    <section id="dashboard" class="welcome">
+      <p class="welcome-date" id="today-date"></p>
+      <h1 id="welcome-message">Welcome to GCTU Student Hub</h1>
+      <p class="welcome-text">
+        Your personal space to organise classes, assignments, study tasks and exams.
+      </p>
+      <p class="notice">
+        This is an unofficial student project. It is not affiliated with GCTU,
+        and any example information shown is <strong>sample data</strong>.
+      </p>
+    </section>
+
+    <!-- ===== FEATURE CARDS: each card is one tool. Content comes in later steps. ===== -->
+    <div class="card-grid">
+
+      <section id="timetable" class="card">
+        <h2>Timetable</h2>
+        <p>Your weekly class schedule.</p>
+        <p class="placeholder">Coming soon</p>
+      </section>
+
+      <section id="assignments" class="card">
+        <h2>Assignments &amp; Deadlines</h2>
+        <p>Track what is due and when.</p>
+        <p class="placeholder">Coming soon</p>
+      </section>
+
+      <section id="tasks" class="card">
+        <h2>Study Tasks</h2>
+        <p>A checklist for today's study goals.</p>
+        <p class="placeholder">Coming soon</p>
+      </section>
+
+      <section id="gpa" class="card">
+        <h2>GPA Calculator</h2>
+        <p>Estimate your GPA using a grading scale you can edit.</p>
+        <p class="placeholder">Coming soon</p>
+      </section>
+
+      <section id="exams" class="card">
+        <h2>Exam Countdown</h2>
+        <p>See how many days are left until your exams.</p>
+        <p class="placeholder">Coming soon</p>
+      </section>
+
+      <section id="notes" class="card">
+        <h2>Notes</h2>
+        <p>Quick notes for lectures and revision.</p>
+        <p class="placeholder">Coming soon</p>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>GCTU Student Hub &middot; Student learning project</p>
+  </footer>
+
+  <!-- JavaScript is loaded last so the HTML above already exists when it runs -->
+  <script src="js/app.js"></script>
+</body>
+</html>

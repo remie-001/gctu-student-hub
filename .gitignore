@@ -1,0 +1,12 @@
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Editor settings
+.vscode/
+
+# Node.js packages (if we add any later)
+node_modules/
+
+# Secret settings - never commit these
+.env
